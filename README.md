@@ -23,9 +23,9 @@ npm install @goapptiv/slack-helper-nestjs
 
 ```ts
 SlackHelperModule.registerAsync({
+  isGlobal: true,
   imports: [AppConfigModule],
   useFactory: (appConfigService: AppConfigService) => ({
-    logger: new Logger(SlackHelperModule.name), // <--- This field is optional, if not provided it will take the Logger from nestjs/common
     appEnv: appConfigService.appEnvironment,
     channels: {
       default: 'general',

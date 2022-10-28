@@ -1,5 +1,5 @@
 import { UnidentifiedExceptionRaisedEvent } from '@goapptiv/exception-handler-nestjs';
-import { ResponseResponseErrorCode } from '@goapptiv/rest-response-nestjs';
+import { RestResponseErrorCode } from '@goapptiv/rest-response-nestjs';
 import { Event } from '@goapptiv/exception-handler-nestjs/dist/constants/event.enum';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
@@ -12,15 +12,11 @@ import { SlackHelperModule } from 'src/slack-helper.module';
 
 @Injectable()
 export class PublishUnidentifiedExceptionListener {
-  private logger: Partial<Logger> = new Logger(SlackHelperModule.name);
+  private logger = new Logger(SlackHelperModule.name);
   constructor(
     @Inject(MODULE_OPTIONS_TOKEN) private options: SlackHelperModuleOptions,
     private readonly slackService: SlackService,
-  ) {
-    if (options.logger) {
-      this.logger = options.logger;
-    }
-  }
+  ) {}
 
   /**
    * process unidentified raised exception
@@ -33,7 +29,7 @@ export class PublishUnidentifiedExceptionListener {
 
     const data: GenerateExceptionMessageBO = {
       appEnvironment: appEnv,
-      type: ResponseResponseErrorCode.E500_UNIDENTIFIED_INTERNAL_SERVER_ERROR,
+      type: RestResponseErrorCode.E500_UNIDENTIFIED_INTERNAL_SERVER_ERROR,
       exception: event.exception,
       request: {
         id: event.req['id'],
