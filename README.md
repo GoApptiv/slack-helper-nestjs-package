@@ -44,3 +44,9 @@ This package internally uses [@goapptiv/exception-handler-nestjs](https://github
 ## Usage
 
 It does everything automatically!
+
+## Troubleshooting
+
+**1)** ERROR [ExceptionHandler] Nest can't resolve dependencies of the SlackService (?, SlackWebClient, SlackGoogleLogging). Please make sure that the argument SlackModuleOptions at index [0] is available in the SlackHelperModule context.
+
+**Solution**: Make you have made the SlackModule (provided by nestjs-slack) as Global.
