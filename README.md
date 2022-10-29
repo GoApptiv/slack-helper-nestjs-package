@@ -39,7 +39,7 @@ SlackHelperModule.registerAsync({
 
 5. Pass eventEmitter
 
-This package internally uses @goapptiv/exception-handler, so make sure to pass the eventEmitter to exception-handler filters.
+This package internally uses [@goapptiv/exception-handler-nestjs](https://github.com/GoApptiv/exception-handler-nestjs-package), so make sure to pass the eventEmitter to exception-handler filters.
 
 ## Usage
 
