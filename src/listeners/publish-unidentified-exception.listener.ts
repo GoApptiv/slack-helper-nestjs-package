@@ -19,10 +19,10 @@ export class PublishUnidentifiedExceptionListener {
   ) {}
 
   /**
-   * process unidentified raised exception
+   * Process unidentified raised exception
    */
   @OnEvent(Event.UNIDENTIFIED_EXCEPTION, { async: true })
-  async handleEvent(event: UnidentifiedExceptionRaisedEvent) {
+  async handleEvent(event: UnidentifiedExceptionRaisedEvent): Promise<void> {
     this.logger.log(`unidentified exception raised, publishing to slack`);
 
     const { appEnv, channels } = this.options;

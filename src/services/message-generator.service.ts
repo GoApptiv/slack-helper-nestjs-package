@@ -3,7 +3,7 @@ import { GenerateExceptionMessageBO } from 'src/bo/generate-exception-message.bo
 
 export class MessageGeneratorService {
   /**
-   * generates exception message
+   * Generates exception message
    */
   static generateExceptionMessage(
     data: GenerateExceptionMessageBO,
